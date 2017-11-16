@@ -1,0 +1,38 @@
+{% extends 'inc/template.twig' %}
+{% block conteudo %}
+	{% for filme in editarFilme %}
+		{% if filme.locado == 1 %}
+			{% set checked = 'checked'%}
+		{% endif %}
+
+		{% if filme.locado == 0 %}
+			{% set checked = ''%}
+		{% endif %}
+	<div class="container">
+		<div class="jumbotron">
+			
+			<form method="post">
+				<input type="hidden" name="id" value="{{filme.id}}}">
+				<div class="form-group">
+					<label for="titulo">Titulo</label>
+					<input class="form-control" type="text" name="titulo" value="{{filme.titulo}}">
+				</div>
+				<div class="form-group">
+					<label for="ano">Ano</label>
+					<input class="form-control" type="text" name="ano" value="{{filme.ano}}">
+				</div>
+				<div class="form-group">
+					<label for="genero">Genero</label>
+					<input class="form-control" type="text" name="genero" value="{{filme.genero}}">
+				</div>
+				<p>
+			      <input type="checkbox" value="1" id="alugado" name="locado" {{checked}}/>
+			      <label for="alugado">Alugado</label>
+			    </p>
+				<input class="btn green darken-2" type="submit" name="" value="Concluir">
+			</form><br>
+			<a href="/excluirfilme/{{filme.id}}"><button class="waves-effect waves-light btn red">Excluir Filme</button></a>
+		</div>
+	</div>
+	{% endfor %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'inc/template.twig' %}
+{% block conteudo %}
+	<div class="container">
+		<div class="row">
+			<div class="jumbotron">
+			<form method="post" enctype="multipart/form-data">
+				<div class="form-row">
+				 <div class="file-field input-field">
+				      <div class="btn yellow darken-4">
+				        <span>File</span>
+				        <input type="file" name="capa">
+				      </div>
+				      <div class="file-path-wrapper">
+				        <input class="file-path validate" type="text" placeholder="Upload one or more files">
+				      </div>
+    			</div>
+				<div class="form-group col-md-6">
+					<label for="titulo">Titulo</label>
+					<input class="form-control" type="text" name="titulo" value="">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="ano">Ano</label>
+					<input class="form-control" type="text" name="ano" value="">
+				</div>
+				<div class="form-group col-md-6">
+					<label for="genero">Genero</label>
+					<input class="form-control" type="text" name="genero" value="">
+				</div>
+				</div>
+				<input class="btn green darken-2" type="submit" name="" value="Adicionar Filme">
+				
+			</form>
+			</div>
+		</div>
+	</div>
+{% endblock %}

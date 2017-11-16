@@ -1,0 +1,44 @@
+{% extends 'inc/template.twig' %}
+{% block conteudo %}
+<div class="container">
+<table class="bordered">
+	 <thead>
+	 	<tr>
+	    	<th>Capa</th>
+	    	<th>Titulo</th>
+	    	<th>Ano</th>
+	    	<th>Genero</th>
+	    	<th>Editar</th>
+	    	<th>Alugado</th>
+    	</tr>
+    </thead>
+{% for filmes in listaFilmes %}
+{% if filmes.locado == 1 %}
+	{% set checked = 'checked' %}
+{% endif %}
+{% if filmes.locado == 0 %}
+	{% set checked = '' %}
+{% endif %}
+	<tbody>
+		<tr>
+			<td><img src="/{{src}}/imagens/25.jpg">{{filmes.img_filme}}</td>
+			<td>{{filmes.titulo}}</td>
+			<td>{{filmes.ano}}</td>
+			<td>{{filmes.genero}}</td>
+			<td><a href="/editar/{{filmes.id}}"><button class="waves-effect waves-light btn blue darken-2">Editar <i class="material-icons right">mode_edit</i></button></a></td>
+			<td>
+				<div class="switch">
+				   <label>
+				      Não Alugado
+				      <input disabled type="checkbox" name="{{filmes.id}}" {{checked}} >
+				      <span class="lever"></span>
+				      Alugado 
+				    </label>   
+			  	</div>
+			</td>
+		</tr>
+	</tbody>
+{% endfor %}
+</table>
+</div>
+{% endblock %}

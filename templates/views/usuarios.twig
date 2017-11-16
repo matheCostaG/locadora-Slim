@@ -1,0 +1,24 @@
+{% extends 'inc/template.twig' %}
+{% block conteudo %}
+<div class="container">
+<table class="table">
+	 <thead>
+	 	<tr>
+	    	<th>Nome</th>
+	    	<th>Login</th>
+	    	<th>Email</th>
+    	</tr>
+    </thead>
+{% for usuarios in listaUsuarios %}
+	<tbody>
+		<tr>
+			<td>{{usuarios.nome}}</td>
+			<td>{{usuarios.login}}</td>
+			<td>{{usuarios.email}}</td>
+			<td><a href="/apagar/{{usuarios.id}}"><button class="btn red darken-2">Apagar Usuario</button></a></td>
+		</tr>
+	</tbody>
+{% endfor %}
+</table>
+</div>
+{% endblock %}
